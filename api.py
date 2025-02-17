@@ -36,7 +36,4 @@ def get_leaderboard():
     sorted_leaderboard = sorted(players, key=lambda x: x['score'], reverse=True)
     return jsonify(sorted_leaderboard)
 
-if _name_ == '_main_':
-    users = set()
-    players = []
-    app.run(debug=True)
+
