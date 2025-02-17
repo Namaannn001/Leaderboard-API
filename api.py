@@ -34,6 +34,7 @@ def get_leaderboard():
     
     return jsonify(sorted_leaderboard)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     init_db()
-    app.run(debug=True)
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
