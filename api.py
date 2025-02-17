@@ -37,3 +37,9 @@ def get_leaderboard():
     return jsonify(sorted_leaderboard)
 
 
+if _name_ == '_main_':
+    users = set()
+    players = []
+    app.run(debug=True)
+
+
