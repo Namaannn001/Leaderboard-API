@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import sqlite3
+import os
 
 app = Flask(_name_)
 
@@ -41,5 +42,7 @@ if _name_ == '_main_':
     users = set()
     players = []
     app.run(debug=True)
+
+app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 
