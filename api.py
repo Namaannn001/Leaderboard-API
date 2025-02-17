@@ -12,6 +12,10 @@ def init_db():
                             score INTEGER NOT NULL)''')
         conn.commit()
 
+@app.route('/')
+def home():
+    return jsonify({'message': 'Flask app is running on Vercel!'})
+
 @app.route('/player', methods=['POST'])
 def add_player():
     data = request.get_json()
@@ -34,9 +38,9 @@ def get_leaderboard():
     
     return jsonify(sorted_leaderboard)
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+# Ensure Vercel can detect the app
+def handler(event, context):
+    return app(event, context)
 
 if __name__ == "__main__":
     init_db()
